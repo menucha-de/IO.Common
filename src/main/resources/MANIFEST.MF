@@ -1,0 +1,18 @@
+Bundle-Name: Ha-VIS Device IO Common
+Bundle-SymbolicName: havis.device.io-common
+Bundle-Version: 2.6.0
+Application-Name: GPIO Hardware
+Implementation-Version: 2.6
+Bundle-ManifestVersion: 2
+Bundle-Vendor: HARTING IT_SD
+Import-Package: 
+ com.fasterxml.jackson.databind,
+ havis.device.io,
+ havis.device.io.exception,
+ org.osgi;resolution:=optional,
+ org.osgi.framework;resolution:=optional,
+ org.osgi.framework.wiring;resolution:=optional
+Export-Package: 
+ havis.device.io.common,
+ havis.device.io.common.ext
+

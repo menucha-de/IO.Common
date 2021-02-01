@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<project name="havis.device.io-common" default="publish" xmlns:ivy="antlib:org.apache.ivy.ant">
+
+	<property file="${basedir}/build.properties" />
+
+	<import>
+		<url url="${ivy.url}/ant/default.xml" />
+	</import>
+
+	<target name="clean-cache">
+		<clean-cache />
+	</target>
+
+	<target name="clean-all">
+		<clean-all />
+	</target>
+
+	<target name="compile">
+		<compile>
+			<src path="${src.main.dir}" />
+		</compile>
+	</target>
+
+	<target name="test" depends="compile">
+		<test name="havis.device.io.common.TestSuite" />
+	</target>
+
+	<target name="jar" depends="compile" description="Creates the binary JAR">
+		<jar-bin />
+	</target>
+
+	<target name="compile-gwt" depends="compile">
+		<compile-gwt modules="havis.net.ui.io.IODevice" />
+	</target>
+
+	<target name="deb" depends="jar, compile-gwt">
+		<deb name="50_${basename}" package="havis.device.io">
+			<ivy:retrieve pattern="${dst.dir}/bundle/50_[artifact].[ext]" conf="runtime" log="quiet" />
+		</deb>
+	</target>
+
+	<target name="publish" depends="deb">
+		<publish jar="false" app="false"/>
+	</target>
+
+</project>
