@@ -4,7 +4,7 @@ Bundle-Version: 2.7.0
 Application-Name: GPIO Hardware
 Implementation-Version: 2.7
 Bundle-ManifestVersion: 2
-Bundle-Vendor: HARTING IT_SD
+Bundle-Vendor: Menucha Team <info@menucha.de>
 Import-Package: 
  com.fasterxml.jackson.databind,
  havis.device.io,
